@@ -1,0 +1,38 @@
+<!Doctype html>
+<html lang = "en">
+   <head>
+      <meta charset = "utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>jQuery UI Dialog functionality</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet" type="text/css">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js" type="text/javascript"></script>
+      <style type="text/css">
+         .ui-widget-header,.ui-state-default, ui-button {
+            background:#b4e600;
+            border: 1px solid #414e12;
+            color: #df0000;
+            font-weight: bold;
+         }
+      </style>
+      <script type = "text/javascript">
+          $(document).ready(function(){
+              $("#MyDiv").dialog({
+                  autoOpen: true,
+               });
+              $("#MyButton").click(function () {
+                  $("#MyDiv").dialog("open");
+              });
+          });
+      </script>
+   </head>
+   
+   <body style="background-color: yellow;">
+      <div id = "MyDiv" title="My Div Title..">
+           My Div Description
+		   <input type="text" />
+      </div>
+      <button id = "MyButton" style="background-color: rgb(255, 238, 0);">Click Here..</button>
+   </body>
+</html>
