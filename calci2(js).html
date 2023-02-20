@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgb(187, 0, 255), rgb(0, 113, 128));
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: rgba(6, 198, 241, 0.979);
+            margin: 10px auto;
+            padding: 10px;
+            border: 3px solid #000;
+            width: 355px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        button {
+            background-color: rgb(127, 202, 255);
+            height: 2.5em;
+            width: 2.5em;
+            padding: 0.125em;
+            margin: 0.125em;
+            border-radius: 0.5em;
+            font-size: 2em;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        button:hover {
+            background-color: darkorange;
+            color: white;
+        }
+        
+        #display {
+            background-color:lightcyan;
+            text-align: right;
+            font-family: poppins, sans-serif;
+            font-size: 2em;
+            height: 2em;
+            border: 3px solid black;
+            font-weight: 300;
+            padding: 25px 15px 0 0;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        
+        .optr {
+            background-color: rgb(27, 0, 100);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id='display'></div>
+        <div class="buttons">
+            <button onclick="changeVal(1)">1</button>
+            <button onclick="changeVal(2)">2</button>
+            <button onclick="changeVal(3)">3</button>
+            <button onclick="changeVal(4)">4</button>
+            <br />
+            <button onclick="changeVal(5)">5</button>
+            <button onclick="changeVal(6)">6</button>
+            <button onclick="changeVal(7)">7</button>
+            <button onclick="changeVal(8)">8</button>
+            <br />
+            <button onclick="changeVal(9)">9</button>
+            <button onclick="changeVal(0)">0</button>
+            <button class="optr" onclick="changeVal('+')">+</button>
+            <button class="optr" onclick="operation('=')">=</button>
+            <br />
+            <button class="optr" onclick="changeVal('-')">-</button>
+            <button class="optr" onclick="changeVal('*')">x</button>
+            <button class="optr" onclick="changeVal('/')">/</button>
+            <button class="optr" onclick="operation('C')">C</button>
+            <br />
+        </div>
+    </div>
+</body>
+<script>
+    d = document.getElementById('display');
+
+    function changeVal(n) {
+        d.innerHTML += n;
+    }
+
+    function operation(op) {
+        if (op == "=")
+            d.innerHTML = eval(d.innerHTML);
+        else if (op == "C")
+            d.innerHTML = "";
+    }
+</script>
+
+</html>
+
+
+
+
+
