@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINALLYYYY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins, sans-serif;
+        }
+        body{
+            background-color: rgb(141, 17, 207);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 70%;
+            margin: 0 auto;
+            background-color: rgba(25, 0, 255, 0.055);
+            padding:20px;
+            height: 400px;
+            border-radius: 25px;
+            box-shadow: 2px 2px 35px black;
+        }
+
+        .heading {
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            padding-bottom: 40px;
+            text-decoration: underline;
+            text-decoration-color: rgb(141, 17, 207) ;
+            
+        }
+
+        .ID {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .IDFrom,
+        .IDTo {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .exchange {
+            display: flex;
+            flex-direction: row;
+            height: 40px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+
+        select,input{
+            font-size: 20px;
+            padding-left: 5px;
+            width: 170px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        #outValue{
+            color:white;
+            background-color: rgb(165, 42, 157);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            CURRENCY CONVERTER
+        </div>
+        <div class="ID">
+            <div class="IDFrom">
+                <div class="row">
+                    <h2>Select Currency </h2>
+                </div>
+                <div class="row">
+                    <select id="currencyFrom" class="exchange" onchange="inToOut()">
+                        <option value="USD">USD</option>
+                        <option value="EURO">EURO</option>
+                        <option value="POUND">POUND</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAN">CAN</option>
+                        <option value="INR">INR</option>
+                    </select>
+                    <input type="number" class="exchange" id="inValue" value="0" min=0 oninput="inToOut()">
+                </div>
+            </div>
+            <div class="IDTo">
+                <div class="row">
+                    <h2>Select Currency </h2>
+                </div>
+                <div class="row">
+                    <select id="currencyTo" class="exchange" onchange="inToOut()">
+                        <option value="USD">USD</option>
+                        <option value="EURO">EURO</option>
+                        <option value="POUND">POUND</option>
+                        <option value="AUD">AUD</option>
+                        <option value="CAN">CAN</option>
+                        <option value="INR" selected>INR</option>
+                    </select>
+                    <input type="number" class="exchange" id="outValue" value="0" enasabled>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function inToOut() {
+            currency = ['USD', 'EURO', 'POUND', 'AUD', 'CAN', 'INR'];
+            xRates = [1, 0.942561, 0.829844, 1.493544, 1.360896, 82.864162];
+            cF = document.getElementById('currencyFrom').value;
+            cT = document.getElementById('currencyTo').value;
+            inValue = document.getElementById('inValue');
+            outValue = document.getElementById('outValue');
+            findex = tindex = null;
+
+            //get currency from index
+            for (i = 0; i < currency.length; i++) {
+                if (cF == currency[i]) {
+                    findex = i;
+                    break;
+                }
+            }
+            //get currency to index
+            for (i = 0; i < currency.length; i++) {
+                if (cT == currency[i]) {
+                    tindex = i;
+                    break;
+                }
+            }
+            //Get conversion Rate
+            //cfIndex rate = 1 / xRates[findex] * xRates[tindex]
+            rate = 1 / xRates[findex] * xRates[tindex];
+
+            //calculate the conversion Amount
+            toamount = (inValue.value * rate).toFixed(2);
+            //set the result to output
+            outValue.value = Number(toamount);
+
+            console.log("Convert " + inValue + " " + currency[findex] + " to " + cT + " i.e. " + inValue + " x " + rate + " = " + toamount);
+        }
+    </script>
+</body>
+</html>
