@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: linear-gradient(rgb(187, 0, 255), rgb(0, 113, 128));
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(6, 198, 241, 0.979);
+            margin: 10px auto;
+            padding: 10px;
+            border: 3px solid #000;
+            width: 460px;
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            background-color: rgb(127, 202, 255);
+            height: 2.5em;
+            width: 2.6em;
+            padding: 0.125em;
+            margin: 0.125em;
+            border-radius: 0.9em;
+            font-size: 2em;
+            align-items: center;
+            font-family: DFGothic-EB;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        button:hover {
+            background-color: rgb(38, 0, 255);
+            color: white;
+        }
+        #display {
+            background-color:lightcyan;
+            text-align: right;
+            font-family: poppins, sans-serif;
+            font-size: 1.5em;
+            height: 2em;
+            border: 3px solid black;
+            font-weight: 300;
+            padding: 25px 15px 0 0;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .optr{
+            background-color: orange;
+        }
+        .oprt{
+            font-size: 3em;
+        }
+        .equals{
+            background-color:orange;
+            width: 150px;
+            height: 75px;
+            margin-left: 15px;
+        }
+        .C{
+            width: 100px;
+            height: 77px;
+        }
+        .equalss{
+            width: 150px;
+            height: 75px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="display"></div>
+        <div class="buttons">
+        <button class="oprt C" onclick="changeVal('C')">C</button>
+        <button class="oprt equals" onclick="changeVal('Backspace')">&#9003;</button>
+        <button class="oprt equalss" onclick="changeVal('Enter')">=</button>
+        <br  />
+        <br>
+        <button class="optr" onclick="changeVal('ln')">ln</button>
+        <button onclick="changeVal(7)">7</button>
+        <button onclick="changeVal(8)">8</button>
+        <button onclick="changeVal(9)">9</button>
+        <button class="optr" onclick="changeVal('/')">/</button>
+        <br  />
+        <button class="optr" onclick="changeVal('log')">log</button>
+        <button onclick="changeVal(4)">4</button>
+        <button onclick="changeVal(5)">5</button>
+        <button onclick="changeVal(6)">6</button>
+        <button class="optr" onclick="changeVal('*')">*</button>
+        <br  />
+        <button class="optr" onclick="changeVal('sqrt')">&#x221A;</button>
+        <button onclick="changeVal(1)">1</button>
+        <button onclick="changeVal(2)">2</button>
+        <button onclick="changeVal(3)">3</button>
+        <button class="optr" onclick="changeVal('-')">-</button>
+        <br  />
+        <button class="optr" onclick="changeVal('sq')">sq</button>
+        <button onclick="changeVal(0)">0</button>
+        <button class="optr" onclick="changeVal('.')">.</button>
+        <button class="optr" onclick="changeVal('+/-')">+/-</button>
+        <button class="optr" onclick="changeVal('+')">+</button>
+        <br  />
+        <button class="optr" onclick="changeVal('(')">(</button>
+        <button class="optr" onclick="changeVal('cos')">cos</button>
+        <button class="optr" onclick="changeVal('sin')">sin</button>
+        <button class="optr" onclick="changeVal('tan')">tan</button>
+        <button class="optr" onclick="changeVal(')')">)</button>
+        <br  />
+        </div>
+    </div>
+</body>
+<script>
+function changeVal(n) {
+            let d = document.getElementById('display');
+            switch (n) {
+                case 'Enter':
+                    let ans = eval(d.innerHTML);
+                    if (ans - ans.toFixed(0) > 0)
+                        d.innerHTML = ans.toFixed(2);
+                    else
+                        d.innerHTML = ans;
+                    break;
+                case 'C':
+                    d.innerHTML = '';
+                    break;
+                case '+/-':
+                    d.innerHTML *= -1;
+                    break;
+                case 'Backspace':
+                    d.innerHTML = d.innerHTML.substring(0, d.innerHTML.length - 1);
+                    break;
+                case 'sin':
+                    d.innerHTML = "Math.sin";
+                    break;
+                    case 'cos':
+                    d.innerHTML = "Math.cos";
+                    break;
+                    case 'tan':
+                    d.innerHTML = "Math.tan";
+                    break;
+                    case 'sqrt':
+                    d.innerHTML = "Math.sqrt";
+                    break;
+                    case 'log':
+                    d.innerHTML = "Math.log10(";
+                    break;
+                    case 'ln':
+                    d.innerHTML = "Math.log(";
+                    break;
+                case 'sq':
+                    d.innerHTML *= d.innerHTML;
+                    break;
+                default:
+                    d.innerHTML += n;
+                    break;
+                    
+            }
+        }
+</script>
+</html>
