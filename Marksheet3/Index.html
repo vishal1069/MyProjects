@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MARKSHEET</title>
+    <link rel="stylesheet" href="Style3.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <div class="row">
+                <img src="D:\HTML\images\logo.png" class="imglogo">
+                <h1 id="collegeName">SILVER OAK UNIVERSITY</h1>
+            </div>
+            <div class="row">
+                <h2 id="collegeAddress">Opp. Bhagwat Vidyapith, S. G. Road, Gota, Ahmedabad</h2>
+            </div>
+        </div>
+        <!-- Division for taking input of data for marks -->
+        <div class="contents">
+            <div class="details" id="details" >
+                <table id="marksTbl">
+                    <tr>
+                        <th class="field">Name</th>
+                        <td class="studData">
+                            <input type="text" id="sname" value="Kishore Kumar" class="size1 size2">
+                        </td>
+                        <th class="field">Semester</th>
+                        <td class="studData">
+                            <select name="" id="sem" class="size1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="field">Enrollment No.</th>
+                        <td>
+                            <input type="number" value="200103108101" id="EnrollNo" class="size1 size2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="field">Stream</th>
+                        <td class="studData">
+                            <select id="Strm" class="size1 size2">
+                                <option value="BTech-IT">BTech-IT</option>
+                                <option value="BTech-CE">BTech-CE</option>
+                                <option value="BSC-IT">BSC-IT</option>
+
+                            </select>
+                        </td>
+                        <th class="field">Academic Year</th>
+                        <td class="studData">
+                            <select name="" id="Ayear" class="size1">
+                                <option value="2021-22">2021-22</option>
+                                <option value="2022-23">2022-23</option>
+                                <option value="2023-24">2023-24</option>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field">Artificial Intelligence</td>
+                        <td><input type="number" class="size1" value="85" id="AI" min="0" max="100" onclick="total()">
+                        </td>
+
+                        <td class="field">Advance Java :</td>
+                        <td><input type="number" class="size1" value="89" id="AJ" min="0" max="100" onclick="total()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field">Data Mining :</td>
+                        <td><input type="number" class="size1" value="89" id="DM" min="0" max="100" onclick="total()">
+                        </td>
+
+                        <td class="field">Iot & Applications :</td>
+                        <td><input type="number" class="size1" value="95" id="IOT" min="0" max="100" onclick="total()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field">Android Development :</td>
+                        <td><input type="number" class="size1" value="92" id="AD" min="0" max="100" onclick="total()">
+                        </td>
+
+                        <td class="field">Problem Learning :</td>
+                        <td><input type="number" class="size1" value="92" id="PL" min="0" max="100" onclick="total()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="field">Total :</td>
+                        <td><input type="number" class="size2" id="Total" readonly></td>
+                    </tr>
+                </table>
+                <button onclick="Marksheet()" id="submit">Submit</button>
+            </div>
+
+            <!-- Division to show the result -->
+        <div class="marksheet" id="Mrks">
+            <div class="row1">
+                <!-- DisplayName -->
+                <h3 class="style" id="display"></h3>
+                <br>
+                <!-- ERNO -->
+                <h3 class="style" id="ErNo"></h3>
+                <br>
+                <!-- SEMSTER -->
+                <h3 class="style" id="Semester"></h3>
+            </div>
+                <!-- STREAM -->
+            <div class="row2">
+                <h3 class="style" id="Stream"></h3>
+                <!-- Academic Year -->
+                <h3 class="style" id="AY"></h3>
+                <!-- Average Display -->
+                <h3 class="style" id="avgDisplay"></h3>
+            </div>
+                <br>
+                
+                <!-- Table -->
+                <table id="mainTable"></table>
+                <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function total() {
+            var a = document.getElementById('AI');
+            ArtificialIntelligence = Number(a.value);
+            var x = document.getElementById('Total');
+            var a = document.getElementById('AJ');
+            AdvanceJava = Number(a.value);
+            var a = document.getElementById('DM');
+            DataMining = Number(a.value);
+            var a = document.getElementById('IOT');
+            IotApplications = Number(a.value);
+            var a = document.getElementById('AD');
+            AndroidDevelopment = Number(a.value);
+            var a = document.getElementById('PL');
+            ProblemLearning = Number(a.value);
+        x.value = Number(ArtificialIntelligence + AdvanceJava + DataMining + IotApplications + AndroidDevelopment + ProblemLearning);
+        }
+        var ArtificialIntelligence, AdvanceJava, DataMining, IotApplications, AndroidDevelopment, ProblemLearning;
+        function generateGrade(a) {
+            if (a > 90)
+                return "A1"
+            else if (a > 80 && a <= 90)
+                return "A2"
+            else if (a > 70 && a <= 80)
+                return "B1"
+            else if (a > 60 && a <= 70)
+                return "B2"
+            else if (a > 50 && a <= 60)
+                return "C1"
+            else if (a > 40 && a <= 50)
+                return "C2"
+            else if (a > 33 && a <= 40 )
+                return "D"
+            else
+            
+                return "F"
+        }
+        function Result(){
+            if(ArtificialIntelligence<33||AdvanceJava<33||IotApplications<33|| DataMining<33||AndroidDevelopment<33|| ProblemLearning<33)
+            return "Fail"
+            else
+            return "PASS"
+            
+        }
+        function Marksheet() {
+            var Mrks1 = document.getElementById('Mrks');
+            var name = document.getElementById('sname');
+            var a = document.getElementById('display');
+            a.innerHTML = "Name :" + sname.value;
+            Mrks1.style.display = 'inline-block';
+
+            var Total = document.getElementById('Total').value;
+            var a = document.getElementById('avgDisplay');
+            a.innerHTML = "Average :" + (Number(Total))/ 6;
+
+            var EnrollNo = document.getElementById('EnrollNo');
+            var a = document.getElementById('ErNo');
+            a.innerHTML = "ErNo :" + EnrollNo.value;
+
+            var sem = document.getElementById('sem');
+            var a = document.getElementById('Semester');
+            a.innerHTML = "Semester :" + sem.value;
+
+            var strm = document.getElementById('Strm');
+            var a = document.getElementById('Stream');
+            a.innerHTML = "Stream :" + strm.value;
+
+            var AcdYear = document.getElementById('Ayear');
+            var a = document.getElementById('AY');
+            a.innerHTML = "Academic Year :" + AcdYear.value;
+
+            var tbl = document.getElementById('mainTable');
+            tbl.innerHTML = '';
+            var row = tbl.insertRow();
+            var cell = row.insertCell();
+            cell.innerHTML = '<b> No';
+            cell = row.insertCell();
+            cell.innerHTML = '<b>Subject</b>';
+            cell = row.insertCell();
+            cell.innerHTML = '<b>Total Marks</b>';
+            cell = row.insertCell();
+            cell.innerHTML = '<b>Marks</b>';
+            cell = row.insertCell();
+            cell.innerHTML = '<b>Grade</b>';
+
+            row = tbl.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = '1';
+            cell = row.insertCell();
+            cell.innerHTML = 'Artificial Inteligence';
+            cell = row.insertCell();
+            cell.innerHTML = '100';
+            cell = row.insertCell();
+            cell.innerHTML = ArtificialIntelligence;
+            cell = row.insertCell();
+            cell.innerHTML = generateGrade(ArtificialIntelligence);
+
+            row = tbl.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = '2';
+            cell = row.insertCell();
+            cell.innerHTML = 'AdvanceJava';
+            cell = row.insertCell();
+            cell.innerHTML = '100';
+            cell = row.insertCell();
+            cell.innerHTML = AdvanceJava;
+            cell = row.insertCell();
+            cell.innerHTML = generateGrade(AdvanceJava);
+            
+
+            row = tbl.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = '3';
+            cell = row.insertCell();
+            cell.innerHTML = 'DataMining';
+            cell = row.insertCell();
+            cell.innerHTML = '100';
+            cell = row.insertCell();
+            cell.innerHTML = DataMining;
+            cell = row.insertCell();
+            cell.innerHTML = generateGrade(DataMining);
+
+            row = tbl.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = '4';
+            cell = row.insertCell();
+            cell.innerHTML = 'IotApplications';
+            cell = row.insertCell();
+            cell.innerHTML = '100';
+            cell = row.insertCell();
+            cell.innerHTML = IotApplications;
+            cell = row.insertCell();
+            cell.innerHTML = generateGrade(IotApplications);
+
+            row = tbl.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = '5';
+            cell = row.insertCell();
+            cell.innerHTML = 'AndroidDevelopment';
+            cell = row.insertCell();
+            cell.innerHTML = '100';
+            cell = row.insertCell();
+            cell.innerHTML = AndroidDevelopment;
+            cell = row.insertCell();
+            cell.innerHTML = generateGrade(AndroidDevelopment);
+
+            row = tbl.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = '6';
+            cell = row.insertCell();
+            cell.innerHTML = 'ProblemLearning';
+            cell = row.insertCell();
+            cell.innerHTML = '100';
+            cell = row.insertCell();
+            cell.innerHTML = ProblemLearning;
+            cell = row.insertCell();
+            cell.innerHTML = generateGrade(ProblemLearning);
+         
+            row = tbl.insertRow();
+            cell = row.insertCell();
+            cell.innerHTML = 'Total:';
+            cell = row.insertCell();
+            cell.innerHTML =(Total);
+            cell = row.insertCell();
+            cell.innerHTML = 'Result';
+            console.log("ANSWER: "+Result());
+            cell = row.insertCell();
+            cell.innerHTML = Result();
+
+document.getElementById('details').style.visibility="hidden";
+        }
+        
+    </script>
+</body>
+
+</html>

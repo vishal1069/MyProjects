@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100vw;
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 
+    sans-serif;
+    color: brown;
+    display: flex;
+    flex-direction: column;
+    
+    padding-bottom: 5px;
+}
+.imglogo{
+    width: 350px;
+    height:100px;
+    position: relative;
+    top:0px;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contents{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    column-gap: 10px;
+}
+
+#collegeName{
+color:goldenrod;
+text-align: center;
+margin-top: -80px;
+}
+#collegeAddress{
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;    
+    
+}
+.details{
+    padding: 20px 5px;
+    background-color:rgb(220, 249, 186);
+    border-radius: 10px;
+    flex:2;
+    line-height: 35px;
+    /* float: right; */
+    /* width: 45%; */
+    /* height: 400px; */
+    /* margin-top: 35px; */
+    /* margin-right: 20px; */
+}
+
+.marksheet{    
+    background-color:rgb(220, 249, 186);
+    /* display: none; */
+    /* width: 50%; */
+    /* height: 580px; */
+    /* text-align: left; */
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    border-radius: 7px;
+    /* margin-top: 35px; */
+    /* margin-left: 35px; */
+    flex:3;
+}
+
+.field{
+    text-align: right;
+    padding: 0 10px;
+    text-transform:capitalize;
+}
+.studData{
+    padding: 0 1px;
+}
+#sem{
+    width: 50px;
+}
+
+.size1,.size2{
+    width: 80px;
+    padding: 5px;
+}
+
+.size2{
+    width: 80%;
+}
+
+#submit{
+    margin-top: 20px;
+    font-size: 20px;
+    width: 30%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: green;
+    color:white;
+}
+
+.style{
+    color:black;
+}
+#marksTbl{
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+}
+
+.marksheet table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    /* margin-left: 135px; */
+
+
+}
+.marksheet td{
+    border: 1px solid black;
+    width: 120px;
+    padding: 10px;
+    height: 40px;
+}
+#mainTable{
+    margin: 0 auto;
+}
+.row1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border:1px solid black; */
+    padding: 20px;
+}
+.row2{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 20px;
+    /* border:1px solid black; */
+}
+
+
+/* #display{
+    display: flex;
+    flex-direction: row;
+    
+} */
+
+
+/*
+
+.details table{
+    margin: auto;
+    margin-top: 10px;
+}
+
+
+#Mrks{
+    display: none;
+}
+.marksheet table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    justify-content: center;
+}
+.marksheet td{
+    border: 1px solid black;
+    width: 120px;
+    padding: 10px;
+    height: 40px;
+}
+#mainTable{
+    margin: 0 auto;
+}
+#marksTbl{
+    padding: 10px;
+    margin: 20px;
+    font-size: 1em;
+    width: 100%;
+}
+#marksTbl tr{
+    height: 30px;
+    font-size: 1em;
+    width: 100%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    border:1px solid black;
+}
+
+.style{
+    padding-left:0;
+}
+.row{
+    display: flex;
+    flex-direction: column;
+}
+#collegeName{
+    text-align: center;
+    padding: 15px 5px;
+    font-size: 2em;
+    font-weight: bolder;
+    margin-top: -100px;
+    margin-bottom: 0px;
+}
+#collegeAddress{
+    padding: 10px 0;
+    display: block;
+}
+
+/*
+#resultTitle{
+    text-align: center; 
+    text-transform:uppercase;  
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
+*/
