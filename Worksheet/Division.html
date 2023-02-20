@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Division</title>
+    <style>
+        *{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            
+        }
+        h1{
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: bolder;
+        }
+        .container{
+            display: flex;
+            gap: 175px;
+        }
+        table{
+            margin: 0 auto;
+            align-items: center;
+        }
+        tr{
+            line-height: 55px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DIVISION</h1>
+    <div class="container">
+        
+        <table id="tbl7"></table>
+        <table id="tbl8"></table>
+    </div>
+    <script>
+        let tbl= document.getElementById('tbl7');
+        let Tbl= document.getElementById('tbl8');
+        for(i=1;i<=10;i++){
+            let row= tbl7.insertRow()
+            Symbol = '/'
+            generateCell(Symbol,row)
+            row= tbl8.insertRow()
+            Symbol = '/'
+            generateCell(Symbol,row)
+        }
+        function generateCell(symbol,row){
+            var a= Math.floor(Math.random()*50) + 10;
+            var b= Math.floor(Math.random()*20) + 10;
+            var cell=row.insertCell();
+            cell.innerHTML=a;
+            var cell=row.insertCell();
+            cell.innerHTML=symbol;
+            var cell=row.insertCell();
+            cell.innerHTML=b;
+            var cell=row.insertCell();
+            cell.innerHTML='=';
+            val = (eval(a + symbol + b).toFixed(2));
+            return cell.innerHTML ='<input type="number" value="' + val + '">';
+        }
+    </script>
+</body>
+</html>

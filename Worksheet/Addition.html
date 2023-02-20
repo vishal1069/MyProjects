@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition</title>
+    <style>
+        *{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            gap: 175px;
+        }
+        tr{
+            line-height: 55px;
+        }
+        h1{
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+        table{
+            margin: 0 auto;
+            align-items: center;
+        }
+        #mybtn1{
+            justify-content: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Addition</h1>
+    <div class="container">
+        <table id="tbl1"></table>
+        <table id="tbl2"></table>
+        <br>
+        
+    </div>
+    <button onclick="checkme()" id="mybtn1">Check</button>
+    <button onclick="printme()" id="mybtn2">Print</button>
+    <script>
+        let tbl = document.getElementById('tbl1');
+        let Tbl = document.getElementById('tbl2');
+        let ans=[];
+        for(i=1;i<=10;i++){
+            let row = tbl1.insertRow();
+            Symbol='+';
+            // if(i%2==1) Symbol='-';
+            generateCell(Symbol,row)
+            row = tbl2.insertRow();
+            Symbol='+';
+            generateCell(Symbol,row)  
+                 
+        }
+        function generateCell(symbol,row){
+            var a = Math.floor(Math.random() * 80) + 10;
+            var b = Math.floor(Math.random() * 80) + 10;
+            var cell = row.insertCell();
+            cell.innerHTML = a;
+            var cell = row.insertCell();
+            cell.innerHTML = symbol;
+            var cell = row.insertCell();
+            cell.innerHTML = b;
+            var cell = row.insertCell();
+            cell.innerHTML = '=';
+            val = eval(a + symbol + b);
+            ans.push(val);
+            return cell.innerHTML = "<input type='number' class='myans' value= "+val+">"+ "<span class='ch'></span>";
+        }
+
+        function checkme(){
+            let fans=[];
+            let ch= document.getElementsByClassName('ch');
+            
+            let myAns=document.getElementsByClassName('myans');
+            let marks=0;
+
+            for(i=0;i<myAns.length;i++){
+                fans.push(myAns[i].value);
+                
+                if(ans[i]==fans[i]){
+                    //ch[i].innerHTML="&#10004";
+                    console.log("true");
+                    marks++;
+
+                }
+               else{
+                    //ch[i].innerHTML="&#10005";
+                    console.log("false");
+                }
+            }
+            /*for(i=0;i<myAns.length;i++){
+            //alert("Marks are: "+ marks);
+            if(marks!=0)
+            {
+                console.log("True");
+            }
+            else {
+                console.log("False");
+            }
+            }*/
+        }
+        function printme(){
+            window.print();
+        }
+                    
+    </script>
+</body>
+</html>
